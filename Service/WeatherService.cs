@@ -5,10 +5,10 @@ namespace AsyncAwaitLab.Service
 {
     public class WeatherService : IWeatherService
     {
-        private readonly ILogger<JokeService> _logger;
+        private readonly ILogger<WeatherService> _logger;
         private readonly WeatherHttpClient _client;
 
-        public WeatherService(ILogger<JokeService> logger,
+        public WeatherService(ILogger<WeatherService> logger,
                            WeatherHttpClient client)
         {
             _logger = logger;
@@ -17,13 +17,13 @@ namespace AsyncAwaitLab.Service
 
         public Weather GetWeatherSync()
         {
-            _logger.LogInformation("Sync Test Jokes");
+            _logger.LogInformation("Sync Test Weather");
             return _client.ObtainWeatherSync();
         }
 
         public async Task<Weather> GetWeatherAsync()
         {
-            _logger.LogInformation("Async Test Jokes");
+            _logger.LogInformation("Async Test Weather");
             return await _client.ObtainWeatherAsync();
         }
     }
